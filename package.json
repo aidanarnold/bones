@@ -12,7 +12,7 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.72.6",
-    "react-native-mparticle": "2.7.1",
+    "react-native-mparticle": "2.7.10",
     "react-native-permissions": "^3.8.0"
   },
   "devDependencies": {

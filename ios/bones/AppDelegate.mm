@@ -3,7 +3,6 @@
 #import <React/RCTLinkingManager.h>
 
 #import "mParticle.h"
-#import <mParticle-Apple-SDK/mParticle.h>
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 
 #import "URLDelegate.h"

@@ -40,13 +40,13 @@ target 'bones' do
     #
     # Note that if you have use_frameworks! enabled, Flipper will not work and
     # you should disable the next line.
-    :flipper_configuration => flipper_config,
+    # :flipper_configuration => flipper_config,
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  pod 'mParticle-Apple-SDK', '8.12.0'
-  pod 'mParticle-Appboy', '8.2.2'
+  pod 'mParticle-Apple-SDK', '~> 8.0'
+  pod 'mParticle-Appboy', '~> 8.0'
 
   permissions_path = '../node_modules/react-native-permissions/ios'
   pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
