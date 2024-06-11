@@ -10,14 +10,17 @@ buildscript {
         kotlinVersion = "1.8.0"
     }
     repositories {
-        google()
         mavenCentral()
+        maven { url "https://appboy.github.io/appboy-android-sdk/sdk" }
+        google()
     }
     dependencies {
         classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath 'com.google.gms:google-services:4.3.15' // REQUIRED for Firebase
     }
 }
 
 apply plugin: "com.facebook.react.rootproject"
+apply plugin: 'com.google.gms.google-services'  // REQUIRED for Firebase

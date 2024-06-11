@@ -7,7 +7,11 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
+import com.facebook.react.flipper.ReactNativeFlipper;
 import com.facebook.soloader.SoLoader;
+import com.mparticle.MParticle;
+import com.mparticle.MParticleOptions;
+
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
@@ -58,5 +62,14 @@ public class MainApplication extends Application implements ReactApplication {
       DefaultNewArchitectureEntryPoint.load();
     }
     ReactNativeFlipper.initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+
+    MParticleOptions options = MParticleOptions.builder(this)
+        .credentials(BuildConfig.API_KEY, BuildConfig.API_SECRET)
+        .environment(MParticle.Environment.Development)
+        .logLevel(MParticle.LogLevel.VERBOSE)
+        .build();
+
+    MParticle.start(options);
+    MParticle.getInstance().Messaging().enablePushNotifications(BuildConfig.FCM_SENDER_ID);
   }
 }

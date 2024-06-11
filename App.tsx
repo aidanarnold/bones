@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   content: {
     color: 'white',
-    fontSize: 40,
+    fontSize: 36,
   },
 });
 

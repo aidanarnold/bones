@@ -69,6 +69,10 @@ def enableProguardInReleaseBuilds = false
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
 
+def secrets = rootProject.file("secret.properties");
+def secretProperties = new Properties();
+secretProperties.load(new FileInputStream(secrets))
+
 android {
     ndkVersion rootProject.ext.ndkVersion
 
@@ -82,6 +86,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        buildConfigField("String", "API_KEY", secretProperties['api_key'])
+        buildConfigField("String", "API_SECRET", secretProperties['api_secret'])
+        buildConfigField("String", "FCM_SENDER_ID", secretProperties['fcm_sender_id'])
     }
     signingConfigs {
         debug {
@@ -109,6 +116,16 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-core'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation("com.google.firebase:firebase-iid")
+    implementation 'com.mparticle:android-core:5.55.8'
+    implementation 'com.mparticle:android-appboy-kit:5.55.3'
+    implementation 'com.mparticle:android-googleanalyticsfirebasega4-kit:5.55.3'
+
     
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

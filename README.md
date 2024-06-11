@@ -2,7 +2,17 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Step 0: Properties
+
+The build.gradle reads the mParticle API key, secret, and FCM sender ID, from a properties file. Add `secret.properties` under `src/android` and specify these values:
+
+```
+api_key={ANDROID_MPARTICLE_KEY}
+api_secret={ANDROID_MPARTICLE_SECRET}
+fcm_sender_id={FIREBASE_CLOUD_MESSAGING_ID}
+```
+
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
